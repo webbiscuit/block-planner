@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3cw3yek0yu6h"]
+
+[ext_resource type="Script" uid="uid://df1e5437mh8d6" path="res://palette_button.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://sla37jb4b11a" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://d3a2x1qddd3ct" path="res://plate_view.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
+
+[node name="RootLayout" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RootLayout"]
+layout_mode = 2
+
+[node name="PalettePanel" type="VBoxContainer" parent="RootLayout/HBoxContainer"]
+layout_mode = 2
+
+[node name="PaletteLabel" type="Label" parent="RootLayout/HBoxContainer/PalettePanel"]
+layout_mode = 2
+text = "Palette"
+
+[node name="PaletteButtons" type="VBoxContainer" parent="RootLayout/HBoxContainer/PalettePanel"]
+layout_mode = 2
+
+[node name="WhiteButton" type="Button" parent="RootLayout/HBoxContainer/PalettePanel/PaletteButtons"]
+layout_mode = 2
+text = "White"
+script = ExtResource("1_0xm2m")
+
+[node name="RedButton" type="Button" parent="RootLayout/HBoxContainer/PalettePanel/PaletteButtons"]
+layout_mode = 2
+text = "Red"
+script = ExtResource("1_0xm2m")
+colour_id = 1
+
+[node name="BlueButton" type="Button" parent="RootLayout/HBoxContainer/PalettePanel/PaletteButtons"]
+layout_mode = 2
+text = "Blue"
+script = ExtResource("1_0xm2m")
+colour_id = 2
+
+[node name="BlackButton" type="Button" parent="RootLayout/HBoxContainer/PalettePanel/PaletteButtons"]
+layout_mode = 2
+text = "Black"
+script = ExtResource("1_0xm2m")
+colour_id = 3
+
+[node name="PlateViewHolder" type="Control" parent="RootLayout/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlateView" type="Node2D" parent="RootLayout/HBoxContainer/PlateViewHolder" groups=["palette_listeners"]]
+position = Vector2(10, 10)
+script = ExtResource("1_ig7tw")
